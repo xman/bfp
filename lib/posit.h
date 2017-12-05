@@ -1,6 +1,7 @@
 #ifndef __POSIT_H
 #define __POSIT_H
 
+#include <limits>
 #include "posit_types.h"
 
 class Posit {
@@ -80,5 +81,46 @@ bool operator>(const Posit&a , const Posit& b);
 bool operator>=(const Posit&a , const Posit& b);
 bool operator==(const Posit&a , const Posit& b);
 bool operator!=(const Posit&a , const Posit& b);
+
+
+namespace std {
+    // FIXME: Incomplete.
+    template <> class numeric_limits<Posit>
+    {
+    public:
+        static const bool is_specialized = true;
+        static Posit min();
+        static Posit max();
+        static Posit lowest();
+        static const int digits = -1;
+        static const int digits10 = -1;
+        static const int max_digits10 = -1;
+        static const bool is_signed = true;
+        static const bool is_integer = false;
+        static const bool is_exact = false;
+        static const int radix = 2;
+        static Posit epsilon() { return Posit().eps(); }
+        static Posit round_error();
+        static const int min_exponent = -1;
+        static const int min_exponent10 = -1;
+        static const int max_exponent = -1;
+        static const int max_exponent10 = -1;
+        static const bool has_infinity = true;
+        static const bool has_quiet_NaN = false;
+        static const bool has_signaling_NaN = false;
+        static const float_denorm_style has_denorm = denorm_present;
+        static const bool has_denorm_loss = false;
+        static Posit infinity() { return Posit().inf(); }
+        static Posit quiet_NaN();
+        static Posit signaling_NaN();
+        static Posit denorm_min();
+        static const bool is_iec559 = false;
+        static const bool is_bounded = false;
+        static const bool is_modulo = false;
+        static const bool traps = false;
+        static const bool tinyness_before = false;
+        static const float_round_style round_style = round_indeterminate;
+    };
+}
 
 #endif
