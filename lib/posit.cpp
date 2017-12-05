@@ -114,6 +114,11 @@ Posit Posit::nan() const
     return Posit(mNbits, mEs, true);
 }
 
+Posit Posit::eps() const
+{
+    return Posit((1 << (POSIT_WIDTH - mNbits)), mNbits, mEs, false);
+}
+
 Posit Posit::neg() const
 {
     return Posit(util_neg(mBits, mNbits), mNbits, mEs, false);

@@ -39,6 +39,7 @@ public:
     Posit one() const;                    // 1
     Posit inf() const;                    // +/-inf
     Posit nan() const;                    // NaN
+    Posit eps() const;
 
     Posit neg() const;                    // -x
     Posit rec() const;                    // /x
