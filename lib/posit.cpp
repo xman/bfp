@@ -368,6 +368,30 @@ Posit operator/(const Posit& a, const Posit& b)
     return a.div(b);
 }
 
+Posit& operator+=(Posit& a, const Posit& b)
+{
+    a = a.add(b);
+    return a;
+}
+
+Posit& operator-=(Posit& a, const Posit& b)
+{
+    a = a.sub(b);
+    return a;
+}
+
+Posit& operator*=(Posit& a, const Posit& b)
+{
+    a = a.mul(b);
+    return a;
+}
+
+Posit& operator/=(Posit& a, const Posit& b)
+{
+    a = a.div(b);
+    return a;
+}
+
 Posit operator-(const Posit& a)
 {
     return a.neg();

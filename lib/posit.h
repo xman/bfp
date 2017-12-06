@@ -74,6 +74,11 @@ Posit operator-(const Posit& a, const Posit& b);
 Posit operator*(const Posit& a, const Posit& b);
 Posit operator/(const Posit& a, const Posit& b);
 
+Posit& operator+=(Posit& a, const Posit& b);
+Posit& operator-=(Posit& a, const Posit& b);
+Posit& operator*=(Posit& a, const Posit& b);
+Posit& operator/=(Posit& a, const Posit& b);
+
 Posit operator-(const Posit& a);
 
 bool operator<(const Posit&a , const Posit& b);
