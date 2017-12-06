@@ -25,6 +25,9 @@ public:
     Posit(int nbits, int es);
     Posit(int nbits, int es, double v);
 
+    explicit operator float()  { return getFloat();  }
+    explicit operator double() { return getDouble(); }
+
     bool isZero() const;                  // check for 0
     bool isOne() const;                   // check for +/- 1
     bool isInf() const;                   // check for +/- infinity
