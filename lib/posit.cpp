@@ -44,6 +44,12 @@ Posit::Posit(int nbits, int es) :
 {
 }
 
+Posit::Posit(int nbits, int es, double v) :
+    Posit(nbits, es, false)
+{
+    set(v);
+}
+
 bool Posit::isZero() const
 {
     return util_is_zero(mBits);

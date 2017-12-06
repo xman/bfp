@@ -23,6 +23,7 @@ public:
     Posit();
     Posit(double v);
     Posit(int nbits, int es);
+    Posit(int nbits, int es, double v);
 
     bool isZero() const;                  // check for 0
     bool isOne() const;                   // check for +/- 1
