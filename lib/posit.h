@@ -122,6 +122,8 @@ namespace std {
         static const bool tinyness_before = false;
         static const float_round_style round_style = round_indeterminate;
     };
+
+    Posit sqrt(Posit a);
 }
 
 #endif

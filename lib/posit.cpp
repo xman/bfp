@@ -401,3 +401,20 @@ bool operator!=(const Posit&a , const Posit& b)
 {
     return !a.eq(b);
 }
+
+Posit std::sqrt(Posit a)
+{
+    Posit half = Posit(a.nbits(), a.es(), 0.5);
+    Posit guess = a * half;
+
+    const int max_iterations = 1000;
+    for (int i = 0; i < max_iterations; ++i) {
+        Posit new_guess = (guess + a/guess)*half;
+        if (new_guess == guess) {
+            break;
+        }
+        guess = new_guess;
+    }
+
+    return guess;
+}
